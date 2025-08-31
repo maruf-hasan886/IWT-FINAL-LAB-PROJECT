@@ -1,154 +1,101 @@
-// Function to show/hide sections
+// index.js
+
+// Function to show a section by ID
 function showSection(sectionId) {
-    // Hide all sections
-    document.querySelectorAll('section').forEach(section => {
-        section.classList.remove('active');
-    });
-    
-    // Show the selected section
-    document.getElementById(sectionId).classList.add('active');
-    
-    // Update navigation active state
-    document.querySelectorAll('.nav-card').forEach(card => {
-        card.classList.remove('active');
-    });
-    
-    // Add active class to the clicked nav card
-    event.currentTarget.classList.add('active');
-    
-    // Scroll to top
-    window.scrollTo(0, 0);
+  // Hide all sections
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    section.classList.remove('active');
+  });
+
+  // Show the selected section
+  const activeSection = document.getElementById(sectionId);
+  if (activeSection) {
+    activeSection.classList.add('active');
+    // Optional: scroll to top of section
+    activeSection.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
-// Modal functions
+// Open Login Modal
 function openLoginModal() {
-    document.getElementById('loginModal').style.display = 'flex';
+  document.getElementById('loginModal').style.display = 'flex';
 }
 
+// Close Login Modal
 function closeLoginModal() {
-    document.getElementById('loginModal').style.display = 'none';
+  document.getElementById('loginModal').style.display = 'none';
 }
 
+// Open Register Modal
 function openRegisterModal() {
-    document.getElementById('registerModal').style.display = 'flex';
+  document.getElementById('registerModal').style.display = 'flex';
 }
 
+// Close Register Modal
 function closeRegisterModal() {
-    document.getElementById('registerModal').style.display = 'none';
+  document.getElementById('registerModal').style.display = 'none';
 }
 
-// Close modals when clicking outside
-window.onclick = function(event) {
-    const loginModal = document.getElementById('loginModal');
-    const registerModal = document.getElementById('registerModal');
-    
-    if (event.target === loginModal) {
-        closeLoginModal();
-    }
-    
-    if (event.target === registerModal) {
-        closeRegisterModal();
-    }
-}
+// Optional: Close modal when clicking outside the content
+window.addEventListener('click', function(e) {
+  const loginModal = document.getElementById('loginModal');
+  const registerModal = document.getElementById('registerModal');
 
-// Form submission handlers
-document.addEventListener('DOMContentLoaded', function() {
-    // Bill form submission
-    const billForm = document.getElementById('billForm');
-    if (billForm) {
-        billForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const billMsg = document.getElementById('billMsg');
-            billMsg.textContent = 'Payment processed successfully!';
-            billMsg.style.display = 'block';
-            billForm.reset();
-            
-            // Hide message after 3 seconds
-            setTimeout(() => {
-                billMsg.style.display = 'none';
-            }, 3000);
-        });
-    }
-    
-    // Room form submission
-    const roomForm = document.getElementById('roomForm');
-    if (roomForm) {
-        roomForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Room allocation request submitted successfully!');
-            roomForm.reset();
-        });
-    }
-    
-    // Notice form submission
-    const noticeForm = document.getElementById('noticeForm');
-    if (noticeForm) {
-        noticeForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Notice posted successfully!');
-            noticeForm.reset();
-        });
-    }
-    
-    // Booking form submission
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Facility booking request submitted!');
-            bookingForm.reset();
-        });
-    }
-    
-    // Complaint form submission
-    const complaintForm = document.getElementById('complaintForm');
-    if (complaintForm) {
-        complaintForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Complaint submitted successfully!');
-            complaintForm.reset();
-        });
-    }
-    
-    // Set minimum date for booking to today
-    const bookingDate = document.getElementById('bookingDate');
-    if (bookingDate) {
-        const today = new Date().toISOString().split('T')[0];
-        bookingDate.setAttribute('min', today);
-    }
-    
-    // Initialize stats counter animation
-    animateStats();
+  if (e.target === loginModal) closeLoginModal();
+  if (e.target === registerModal) closeRegisterModal();
 });
+// JS for Service Section Modal
+document.addEventListener('DOMContentLoaded', () => {
+  const serviceButtons = document.querySelectorAll('#services .service-card button');
+  const modalContainer = document.createElement('div');
+  modalContainer.id = 'serviceModal';
+  modalContainer.classList.add('modal');
+  modalContainer.innerHTML = `
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="serviceTitle"></h2>
+      <p id="serviceDescription"></p>
+    </div>
+  `;
+  document.body.appendChild(modalContainer);
 
-// Stats counter animation
-function animateStats() {
-    const statCards = document.querySelectorAll('.stat-card');
-    
-    statCards.forEach(card => {
-        const valueElement = card.querySelector('h3');
-        const finalValue = parseInt(valueElement.textContent);
-        let currentValue = 0;
-        const duration = 2000; // 2 seconds
-        const increment = finalValue / (duration / 16); // 60fps
-        
-        const timer = setInterval(() => {
-            currentValue += increment;
-            if (currentValue >= finalValue) {
-                valueElement.textContent = finalValue;
-                clearInterval(timer);
-            } else {
-                valueElement.textContent = Math.floor(currentValue);
-            }
-        }, 16);
+  const modal = document.getElementById('serviceModal');
+  const closeModalBtn = modal.querySelector('.close');
+  const titleElem = document.getElementById('serviceTitle');
+  const descElem = document.getElementById('serviceDescription');
+
+  // Service descriptions (customize as needed)
+  const servicesData = {
+    'Reading Room': 'Quiet, well-ventilated study rooms with desks, chairs, and ample lighting for focused study.',
+    'Canteen': 'Clean, hygienic canteen serving multiple food options including breakfast, lunch, and snacks.',
+    'Study Room': 'Equipped with computers and high-speed Wi-Fi for research, assignments, and academic work.',
+    'Sports Ground': 'Large, well-maintained sports ground with proper lighting for football, cricket, and other sports.',
+    'Medical Support': 'Doctor on call and first-aid available for emergencies along with basic health checkups.',
+    'Security': '24/7 trained security personnel with CCTV monitoring and controlled entry for student safety.'
+  };
+
+  // Show modal on button click
+  serviceButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const card = e.target.closest('.service-card');
+      const serviceName = card.querySelector('h3').innerText;
+      titleElem.innerText = serviceName;
+      descElem.innerText = servicesData[serviceName] || 'Details not available.';
+      modal.style.display = 'flex';
     });
-}
+  });
 
-// Initialize the page
-document.addEventListener('DOMContentLoaded', function() {
-    // Set home as active section
-    showSection('home');
-    
-    // Add active class to home nav card
-    document.querySelector('.nav-card[onclick="showSection(\'home\')"]').classList.add('active');
+  // Close modal on clicking X
+  closeModalBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Close modal on clicking outside content
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
 });
+
