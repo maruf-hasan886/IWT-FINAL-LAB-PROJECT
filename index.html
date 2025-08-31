@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Hall Management System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <div class="logo-container">
+      <div class="logo">JU</div>
+      <div class="hall-title">
+        <h1>MIR MOSHARRAF HOSSAIN HALL</h1>
+        <h3>Jahangirnagar University</h3>
+      </div>
+    </div>
+    <div class="user-controls">
+      <button class="login-btn" onclick="openLoginModal()"><i class="fas fa-sign-in-alt"></i> Login</button>
+      <button class="register-btn" onclick="openRegisterModal()"><i class="fas fa-user-plus"></i> Register</button>
+    </div>
+  </div>
+</header>
+<nav>
+  <div class="nav-card" onclick="showSection('home')"><i class="fas fa-home"></i> Home</div>
+  <div class="nav-card" onclick="showSection('about')"><i class="fas fa-info-circle"></i> About</div>
+  <div class="nav-card" onclick="showSection('services')"><i class="fas fa-concierge-bell"></i> Services</div>
+  <div class="nav-card" onclick="showSection('administration')"><i class="fas fa-user-tie"></i> Administration</div>
+  <div class="nav-card" onclick="showSection('paybill')"><i class="fas fa-money-bill-wave"></i> Pay Bill</div>
+  <div class="nav-card" onclick="showSection('room')"><i class="fas fa-bed"></i> Room Allocation</div>
+  <div class="nav-card" onclick="showSection('notice')"><i class="fas fa-clipboard-list"></i> Notice Board</div>
+  <div class="nav-card" onclick="showSection('booking')"><i class="fas fa-calendar-check"></i> Facility Booking</div>
+  <div class="nav-card" onclick="showSection('meal')"><i class="fas fa-utensils"></i> Meal Booking</div>
+  <div class="nav-card" onclick="showSection('events')"><i class="fas fa-calendar-day"></i> Events</div>
+  <div class="nav-card" onclick="showSection('complaint')"><i class="fas fa-exclamation-circle"></i> Complaint Box</div>
+  <div class="nav-card" onclick="showSection('emergency')"><i class="fas fa-phone-alt"></i> Emergency Info</div>
+  <div class="nav-card" onclick="showSection('admin')"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</div>
+</nav>
+
+<div class="container">
+  <!-- Home Section -->
+  <section id="home" class="active">
+    <div class="hero"style="background-image: url('images/home.jpeg'); background-size: cover; background-position: center; height: 100vh;"></div>
+    <div class="hero-content">
+      <h2 class="welcome-title">Welcome to MIR MOSHARRAF HOSSAIN HALL</h2>
+      <p class="welcome-subtitle">A Home Away From Home</p>
+      <div class="hero-buttons">
+        <button class="hero-btn primary" onclick="showSection('about')">Explore Our Hall</button>
+        <button class="hero-btn" onclick="openLoginModal()">Student Login</button>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>Latest Announcements</h2>
+      <div class="alert alert-success">
+        <i class="fas fa-bullhorn"></i> <strong>Important:</strong> Semester break begins from next week. All students must vacate rooms by 15th.
+      </div>
+      <div class="alert alert-error">
+        <i class="fas fa-exclamation-triangle"></i> <strong>Notice:</strong> Internet maintenance scheduled for tomorrow from 10 PM to 2 AM.
+      </div>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <i class="fas fa-users"></i>
+        <h3>450</h3>
+        <p>Current Residents</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-bed"></i>
+        <h3>25</h3>
+        <p>Rooms Available</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-utensils"></i>
+        <h3>3</h3>
+        <p>Meal Options Today</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-calendar"></i>
+        <h3>5</h3>
+        <p>Upcoming Events</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeLoginModal()">&times;</span>
+    <h2>Student Login</h2>
+    <form>
+      <div class="form-group">
+        <label>Student ID:</label>
+        <input type="text" required>
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p style="text-align: center; margin-top: 20px;">
+      <a href="#">Forgot Password?</a>
+    </p>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeRegisterModal()">&times;</span>
+    <h2>Student Registration</h2>
+    <form>
+      <div class="form-group">
+        <label>Full Name:</label>
+        <input type="text" required>
+      </div>
+      <div class="form-group">
+        <label>Student ID:</label>
+        <input type="text" required>
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number:</label>
+        <input type="tel" required>
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        <input type="password" required>
+      </div>
+      <div class="form-group">
+        <label>Confirm Password:</label>
+        <input type="password" required>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/indes.js"></script>
+</body>
+</html>
