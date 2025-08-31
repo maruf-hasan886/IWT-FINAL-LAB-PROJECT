@@ -942,4 +942,116 @@ h3 {
     animation: cardPulse 0.5s ease;
 }
 
+/* ---------- Pay Bill Section ---------- */
+#paybill {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#paybill h2 {
+  text-align: center;
+  color: #004080;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #004080;
+  padding-bottom: 10px;
+}
+
+#paybill form {
+  margin-bottom: 25px;
+}
+
+#paybill .form-group {
+  margin-bottom: 18px;
+}
+
+#paybill label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+#paybill input, 
+#paybill select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+
+#paybill input:focus,
+#paybill select:focus {
+  border-color: #004080;
+  box-shadow: 0 0 4px rgba(0,64,128,0.3);
+}
+
+#paybill button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #004080;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#paybill button[type="submit"]:hover {
+  background: #0066cc;
+}
+
+#billMsg {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Success alert */
+#billMsg.alert-success {
+  background: #e6ffed;
+  color: #256029;
+  border: 1px solid #a3e6a8;
+}
+
+/* ---------- Payment History Table ---------- */
+#paybill h3 {
+  margin: 20px 0 10px;
+  color: #004080;
+}
+
+#paybill table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#paybill th, 
+#paybill td {
+  padding: 10px 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+#paybill th {
+  background: #004080;
+  color: #fff;
+}
+
+#paybill tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+#paybill tr:hover {
+  background: #f1f6ff;
+}
 
