@@ -529,7 +529,173 @@ Mir Mosharraf Hossain Hall is a male residential hall of Jahangirnagar Universit
       </div>
     </div>
   </div>
-</section>    
+</section>  
+<section id="notice" class="active">
+  <div class="card">
+    <h2><i class="fas fa-clipboard-list"></i> Hall Notice Board</h2>
+    
+    <div class="notice-controls">
+      <div class="filter-options">
+        <button class="filter-btn active" data-filter="all">All Notices</button>
+        <button class="filter-btn" data-filter="important">Important</button>
+        <button class="filter-btn" data-filter="general">General</button>
+        <button class="filter-btn" data-filter="event">Events</button>
+      </div>
+      
+      <div class="search-box">
+        <input type="text" id="noticeSearch" placeholder="Search notices...">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+    
+    <form id="noticeForm">
+      <h3>Post New Notice</h3>
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" id="noticeTitle" required>
+      </div>
+      <div class="form-group">
+        <label>Category:</label>
+        <select id="noticeCategory" required>
+          <option value="">Select Category</option>
+          <option value="important">Important</option>
+          <option value="general">General</option>
+          <option value="event">Event</option>
+          <option value="maintenance">Maintenance</option>
+          <option value="academic">Academic</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea id="noticeDesc" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Expiry Date (optional):</label>
+        <input type="date" id="noticeExpiry">
+      </div>
+      <button type="submit"><i class="fas fa-plus"></i> Post Notice</button>
+    </form>
+    
+    <div id="noticeList">
+      <h3>Recent Notices <span class="notice-count">(6 notices)</span></h3>
+      
+      <div class="notice-item important">
+        <div class="notice-header">
+          <h4>Internet Maintenance</h4>
+          <div class="notice-meta">
+            <span class="notice-category">Important</span>
+            <span class="notice-date">Posted: 12-10-2023</span>
+            <span class="notice-expiry">Expires: 15-10-2023</span>
+          </div>
+        </div>
+        <div class="notice-content">
+          <p>Internet maintenance scheduled for tomorrow from 10 PM to 2 AM. There might be disruptions in internet service during this period.</p>
+        </div>
+        <div class="notice-actions">
+          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+        </div>
+      </div>
+      
+      <div class="notice-item maintenance">
+        <div class="notice-header">
+          <h4>Water Supply Issue</h4>
+          <div class="notice-meta">
+            <span class="notice-category">Maintenance</span>
+            <span class="notice-date">Posted: 10-10-2023</span>
+            <span class="notice-expiry">Expires: 12-10-2023</span>
+          </div>
+        </div>
+        <div class="notice-content">
+          <p>There will be no water supply from 10 AM to 4 PM next Sunday due to pipeline maintenance work. Please store water accordingly.</p>
+        </div>
+        <div class="notice-actions">
+          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+        </div>
+      </div>
+      
+      <div class="notice-item event">
+        <div class="notice-header">
+          <h4>Cultural Night Event</h4>
+          <div class="notice-meta">
+            <span class="notice-category">Event</span>
+            <span class="notice-date">Posted: 08-10-2023</span>
+            <span class="notice-expiry">Expires: 26-10-2023</span>
+          </div>
+        </div>
+        <div class="notice-content">
+          <p>Join us for the annual Cultural Night on October 25th. There will be music, dance, and food stalls. All residents are welcome!</p>
+        </div>
+        <div class="notice-actions">
+          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+        </div>
+      </div>
+      
+      <div class="notice-item academic">
+        <div class="notice-header">
+          <h4>Midterm Exam Schedule</h4>
+          <div class="notice-meta">
+            <span class="notice-category">Academic</span>
+            <span class="notice-date">Posted: 05-10-2023</span>
+            <span class="notice-expiry">Expires: 30-10-2023</span>
+          </div>
+        </div>
+        <div class="notice-content">
+          <p>The midterm examination schedule has been posted on the university website. Please check your exam dates and times.</p>
+        </div>
+        <div class="notice-actions">
+          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+        </div>
+      </div>
+      
+      <div class="notice-item general">
+        <div class="notice-header">
+          <h4>Common Room Cleaning</h4>
+          <div class="notice-meta">
+            <span class="notice-category">General</span>
+            <span class="notice-date">Posted: 03-10-2023</span>
+            <span class="notice-expiry">Expires: 05-10-2023</span>
+          </div>
+        </div>
+        <div class="notice-content">
+          <p>The common room will be cleaned this Friday. Please remove all personal belongings by Thursday evening.</p>
+        </div>
+        <div class="notice-actions">
+          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+        </div>
+      </div>
+      
+      <div class="notice-item important">
+        <div class="notice-header">
+          <h4>Semester Break Notice</h4>
+          <div class="notice-meta">
+            <span class="notice-category">Important</span>
+            <span class="notice-date">Posted: 01-10-2023</span>
+            <span class="notice-expiry">Expires: 20-10-2023</span>
+          </div>
+        </div>
+        <div class="notice-content">
+          <p>Semester break begins from next week. All students must vacate rooms by 15th. Please complete the checkout procedure at the hall office.</p>
+        </div>
+        <div class="notice-actions">
+          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>   
+  
 <script src="js/index.js"></script>
 </body>
 </html>
