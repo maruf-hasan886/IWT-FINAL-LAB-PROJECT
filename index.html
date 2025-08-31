@@ -407,7 +407,129 @@ Mir Mosharraf Hossain Hall is a male residential hall of Jahangirnagar Universit
       </tbody>
     </table>
   </div>
-</section>   
+</section>  
+<section id="room" class="active">
+  <div class="card">
+    <h2><i class="fas fa-bed"></i> Room Allocation</h2>
+    
+    <div class="room-form-container">
+      <form id="roomForm">
+        <div class="form-group">
+          <label>Student Name:</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label>Student ID:</label>
+          <input type="text" id="roomId" required>
+        </div>
+        <div class="form-group">
+          <label>Select Room:</label>
+          <select id="roomSelect" required>
+            <option value="">Select Room</option>
+            <option>101 (Single)</option>
+            <option>102 (Single)</option>
+            <option>201 (Double)</option>
+            <option>202 (Double)</option>
+            <option>301 (Triple)</option>
+            <option>302 (Triple)</option>
+          </select>
+        </div>
+        <button type="submit"><i class="fas fa-check"></i> Allocate Room</button>
+      </form>
+      
+      <div class="room-visualization">
+        <h3>Room Availability</h3>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 75%;"></div>
+        </div>
+        <p>75% of rooms occupied (120 out of 160)</p>
+        
+        <div class="floor-plan">
+          <h4>Floor Plan Overview</h4>
+          <div class="floor">
+            <h5>First Floor</h5>
+            <div class="room-grid">
+              <div class="room-item available">101</div>
+              <div class="room-item occupied">102</div>
+              <div class="room-item available">103</div>
+              <div class="room-item occupied">104</div>
+            </div>
+          </div>
+          <div class="floor">
+            <h5>Second Floor</h5>
+            <div class="room-grid">
+              <div class="room-item occupied">201</div>
+              <div class="room-item available">202</div>
+              <div class="room-item occupied">203</div>
+              <div class="room-item occupied">204</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="roomList">
+      <h3>Current Allocation</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Room No</th>
+              <th>Type</th>
+              <th>Occupants</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>101</td>
+              <td>Single</td>
+              <td>Rahim Ahmed</td>
+              <td><span class="status-badge occupied-badge">Occupied</span></td>
+              <td><button class="action-btn view-btn"><i class="fas fa-eye"></i></button></td>
+            </tr>
+            <tr>
+              <td>102</td>
+              <td>Single</td>
+              <td>-</td>
+              <td><span class="status-badge available-badge">Available</span></td>
+              <td><button class="action-btn allocate-btn"><i class="fas fa-user-plus"></i></button></td>
+            </tr>
+            <tr>
+              <td>201</td>
+              <td>Double</td>
+              <td>Karim, Jamal</td>
+              <td><span class="status-badge occupied-badge">Occupied</span></td>
+              <td><button class="action-btn view-btn"><i class="fas fa-eye"></i></button></td>
+            </tr>
+            <tr>
+              <td>202</td>
+              <td>Double</td>
+              <td>-</td>
+              <td><span class="status-badge available-badge">Available</span></td>
+              <td><button class="action-btn allocate-btn"><i class="fas fa-user-plus"></i></button></td>
+            </tr>
+            <tr>
+              <td>301</td>
+              <td>Triple</td>
+              <td>Shafiq, Ratan, Sohel</td>
+              <td><span class="status-badge occupied-badge">Occupied</span></td>
+              <td><button class="action-btn view-btn"><i class="fas fa-eye"></i></button></td>
+            </tr>
+            <tr>
+              <td>302</td>
+              <td>Triple</td>
+              <td>-</td>
+              <td><span class="status-badge available-badge">Available</span></td>
+              <td><button class="action-btn allocate-btn"><i class="fas fa-user-plus"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>    
 <script src="js/index.js"></script>
 </body>
 </html>

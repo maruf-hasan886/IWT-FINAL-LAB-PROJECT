@@ -1054,4 +1054,218 @@ h3 {
 #paybill tr:hover {
   background: #f1f6ff;
 }
+/* ---------- Room Allocation Section ---------- */
+#room {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#room h2 {
+  text-align: center;
+  color: #004080;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #004080;
+  padding-bottom: 10px;
+}
+
+/* Room Form */
+#room .room-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+#room form {
+  flex: 1 1 400px;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+
+#room .form-group {
+  margin-bottom: 18px;
+}
+
+#room label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+#room input,
+#room select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+#room input:focus,
+#room select:focus {
+  border-color: #004080;
+  box-shadow: 0 0 4px rgba(0,64,128,0.3);
+}
+
+#room button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #004080;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#room button[type="submit"]:hover {
+  background: #0066cc;
+}
+
+/* Room Visualization */
+#room .room-visualization {
+  flex: 1 1 400px;
+  padding: 20px;
+  background: #f1f6ff;
+  border-radius: 10px;
+}
+
+#room .progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #ddd;
+  border-radius: 8px;
+  margin: 12px 0;
+  overflow: hidden;
+}
+
+#room .progress-fill {
+  height: 100%;
+  background: #004080;
+  border-radius: 8px;
+  transition: width 0.5s ease-in-out;
+}
+
+#room .floor-plan {
+  margin-top: 20px;
+}
+
+#room .floor h5 {
+  margin: 10px 0;
+  color: #004080;
+}
+
+#room .room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 10px;
+}
+
+#room .room-item {
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#room .room-item.available {
+  background: #e6ffed;
+  color: #256029;
+  border: 1px solid #a3e6a8;
+}
+
+#room .room-item.occupied {
+  background: #ffe6e6;
+  color: #a12626;
+  border: 1px solid #f5a3a3;
+}
+
+/* Current Allocation Table */
+#room #roomList {
+  margin-top: 30px;
+}
+
+#room table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#room th,
+#room td {
+  padding: 10px 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+#room th {
+  background: #004080;
+  color: #fff;
+}
+
+#room tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+#room tr:hover {
+  background: #f1f6ff;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.occupied-badge {
+  background: #ffe6e6;
+  color: #a12626;
+}
+
+.available-badge {
+  background: #e6ffed;
+  color: #256029;
+}
+
+/* Action Buttons */
+.action-btn {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1rem;
+}
+
+.view-btn {
+  background: #004080;
+  color: #fff;
+}
+
+.view-btn:hover {
+  background: #0066cc;
+}
+
+.allocate-btn {
+  background: #28a745;
+  color: #fff;
+}
+
+.allocate-btn:hover {
+  background: #218838;
+}
 
