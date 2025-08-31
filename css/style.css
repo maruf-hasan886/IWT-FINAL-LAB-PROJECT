@@ -712,4 +712,234 @@ h3 {
   background: var(--accent);
   transform: scale(1.1);
 }
+/* Administration Section Styles */
+#administration {
+    padding: 20px;
+}
+
+#administration .hero {
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#administration .card {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#administration h2 {
+    color: #1a237e;
+    border-bottom: 2px solid #3949ab;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+#administration h3 {
+    color: #283593;
+    margin-top: 25px;
+}
+
+/* Admin Profile Layout */
+.admin-profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .admin-profile {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Admin Cards */
+.admin-card {
+    background: #f5f7ff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.admin-card-header {
+    background: #3949ab;
+    color: white;
+    padding: 15px 20px;
+}
+
+.admin-card-header h2 {
+    color: white;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.admin-card-body {
+    padding: 20px;
+}
+
+/* Staff Members */
+.staff-member {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.staff-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid #e8eaf6;
+}
+
+.staff-info h3 {
+    margin: 0 0 5px 0;
+    color: #1a237e;
+}
+
+.staff-info p {
+    margin: 3px 0;
+    color: #546e7a;
+}
+
+/* Contact Information */
+.contact-info {
+    margin: 20px 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 10px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.contact-icon {
+    width: 36px;
+    height: 36px;
+    background: #e8eaf6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    color: #3949ab;
+}
+
+/* Office Hours */
+.office-hours {
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.hours-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.hours-table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.hours-table tr:last-child {
+    border-bottom: none;
+}
+
+.hours-table td {
+    padding: 8px 5px;
+}
+
+.hours-table tr td:first-child {
+    font-weight: 500;
+}
+
+/* Staff List */
+.staff-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.staff-list .staff-member {
+    margin-bottom: 15px;
+}
+
+/* Admin Button */
+.admin-btn {
+    background: #3949ab;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.admin-btn:hover {
+    background: #303f9f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Table Styles */
+#administration table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#administration th {
+    background: #e8eaf6;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #1a237e;
+}
+
+#administration td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+#administration tr:last-child td {
+    border-bottom: none;
+}
+
+/* Button Animation */
+.clicked-card {
+    animation: cardPulse 0.5s ease;
+}
+
 

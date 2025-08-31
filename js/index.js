@@ -98,4 +98,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+// Animate Admin Card on Button Click
+const adminButtons = document.querySelectorAll('.admin-btn');
+
+adminButtons.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const card = e.target.closest('.admin-card');
+
+    // Add animation class
+    card.classList.add('clicked-card');
+
+    // Remove animation class after 0.5s
+    setTimeout(() => {
+      card.classList.remove('clicked-card');
+    }, 500);
+
+    alert('Appointment scheduling feature coming soon!'); // placeholder action
+  });
+});
 
