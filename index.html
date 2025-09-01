@@ -1,171 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Online Hall Management System</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Hall Management System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<header>
-  <div class="header-content">
-    <div class="logo-container">
-      <div class="logo">JU</div>
-      <div class="hall-title">
-        <h1>MIR MOSHARRAF HOSSAIN HALL</h1>
-        <h3>Jahangirnagar University</h3>
+  <header>
+    <div class="header-content">
+      <div class="logo-container">
+        <div class="logo">JU</div>
+        <div class="hall-title">
+          <h1>MIR MOSHARRAF HOSSAIN HALL</h1>
+          <h3>Jahangirnagar University</h3>
+        </div>
+      </div>
+      <div class="user-controls">
+        <button class="login-btn" onclick="openLoginModal()"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="register-btn" onclick="openRegisterModal()"><i class="fas fa-user-plus"></i> Register</button>
       </div>
     </div>
-    <div class="user-controls">
-      <button class="login-btn" onclick="openLoginModal()"><i class="fas fa-sign-in-alt"></i> Login</button>
-      <button class="register-btn" onclick="openRegisterModal()"><i class="fas fa-user-plus"></i> Register</button>
+  </header>
+  <nav>
+    <div class="nav-card" onclick="showSection('home')"><i class="fas fa-home"></i> Home</div>
+    <div class="nav-card" onclick="showSection('about')"><i class="fas fa-info-circle"></i> About</div>
+    <div class="nav-card" onclick="showSection('services')"><i class="fas fa-concierge-bell"></i> Services</div>
+    <div class="nav-card" onclick="showSection('administration')"><i class="fas fa-user-tie"></i> Administration</div>
+    <div class="nav-card" onclick="showSection('paybill')"><i class="fas fa-money-bill-wave"></i> Pay Bill</div>
+    <div class="nav-card" onclick="showSection('room')"><i class="fas fa-bed"></i> Room Allocation</div>
+    <div class="nav-card" onclick="showSection('notice')"><i class="fas fa-clipboard-list"></i> Notice Board</div>
+    <div class="nav-card" onclick="showSection('booking')"><i class="fas fa-calendar-check"></i> Facility Booking</div>
+    <div class="nav-card" onclick="showSection('meal')"><i class="fas fa-utensils"></i> Meal Booking</div>
+    <div class="nav-card" onclick="showSection('events')"><i class="fas fa-calendar-day"></i> Events</div>
+    <div class="nav-card" onclick="showSection('complaint')"><i class="fas fa-exclamation-circle"></i> Complaint Box
+    </div>
+    <div class="nav-card" onclick="showSection('emergency')"><i class="fas fa-phone-alt"></i> Emergency Info</div>
+    <div class="nav-card" onclick="showSection('admin')"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</div>
+  </nav>
+
+  <div class="container">
+    <!-- Home Section -->
+    <section id="home" class="active">
+      <div class="hero"
+        style="background-image: url('images/home.jpeg'); background-size: cover; background-position: center; height: 100vh;">
+      </div>
+      <div class="hero-content">
+        <h2 class="welcome-title">Welcome to MIR MOSHARRAF HOSSAIN HALL</h2>
+        <p class="welcome-subtitle">A Home Away From Home</p>
+        <div class="hero-buttons">
+          <button class="hero-btn primary" onclick="showSection('about')">Explore Our Hall</button>
+          <button class="hero-btn" onclick="openLoginModal()">Student Login</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Latest Announcements</h2>
+        <div class="alert alert-success">
+          <i class="fas fa-bullhorn"></i> <strong>Important:</strong> Semester break begins from next week. All students
+          must vacate rooms by 15th.
+        </div>
+        <div class="alert alert-error">
+          <i class="fas fa-exclamation-triangle"></i> <strong>Notice:</strong> Internet maintenance scheduled for
+          tomorrow from 10 PM to 2 AM.
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <i class="fas fa-users"></i>
+          <h3>450</h3>
+          <p>Current Residents</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-bed"></i>
+          <h3>25</h3>
+          <p>Rooms Available</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-utensils"></i>
+          <h3>3</h3>
+          <p>Meal Options Today</p>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-calendar"></i>
+          <h3>5</h3>
+          <p>Upcoming Events</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeLoginModal()">&times;</span>
+      <h2>Student Login</h2>
+      <form>
+        <div class="form-group">
+          <label>Student ID:</label>
+          <input type="text" required>
+        </div>
+        <div class="form-group">
+          <label>Password:</label>
+          <input type="password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <p style="text-align: center; margin-top: 20px;">
+        <a href="#">Forgot Password?</a>
+      </p>
     </div>
   </div>
-</header>
-<nav>
-  <div class="nav-card" onclick="showSection('home')"><i class="fas fa-home"></i> Home</div>
-  <div class="nav-card" onclick="showSection('about')"><i class="fas fa-info-circle"></i> About</div>
-  <div class="nav-card" onclick="showSection('services')"><i class="fas fa-concierge-bell"></i> Services</div>
-  <div class="nav-card" onclick="showSection('administration')"><i class="fas fa-user-tie"></i> Administration</div>
-  <div class="nav-card" onclick="showSection('paybill')"><i class="fas fa-money-bill-wave"></i> Pay Bill</div>
-  <div class="nav-card" onclick="showSection('room')"><i class="fas fa-bed"></i> Room Allocation</div>
-  <div class="nav-card" onclick="showSection('notice')"><i class="fas fa-clipboard-list"></i> Notice Board</div>
-  <div class="nav-card" onclick="showSection('booking')"><i class="fas fa-calendar-check"></i> Facility Booking</div>
-  <div class="nav-card" onclick="showSection('meal')"><i class="fas fa-utensils"></i> Meal Booking</div>
-  <div class="nav-card" onclick="showSection('events')"><i class="fas fa-calendar-day"></i> Events</div>
-  <div class="nav-card" onclick="showSection('complaint')"><i class="fas fa-exclamation-circle"></i> Complaint Box</div>
-  <div class="nav-card" onclick="showSection('emergency')"><i class="fas fa-phone-alt"></i> Emergency Info</div>
-  <div class="nav-card" onclick="showSection('admin')"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</div>
-</nav>
 
-<div class="container">
-  <!-- Home Section -->
-  <section id="home" class="active">
-    <div class="hero"style="background-image: url('images/home.jpeg'); background-size: cover; background-position: center; height: 100vh;"></div>
-    <div class="hero-content">
-
-      <p class="welcome-subtitle">A Home Away From Home</p>
-      <div class="hero-buttons">
-        <button class="hero-btn primary" onclick="showSection('about')">Explore Our Hall</button>
-        <button class="hero-btn" onclick="openLoginModal()">Student Login</button>
-      </div>
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeRegisterModal()">&times;</span>
+      <h2>Student Registration</h2>
+      <form>
+        <div class="form-group">
+          <label>Full Name:</label>
+          <input type="text" required>
+        </div>
+        <div class="form-group">
+          <label>Student ID:</label>
+          <input type="text" required>
+        </div>
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number:</label>
+          <input type="tel" required>
+        </div>
+        <div class="form-group">
+          <label>Password:</label>
+          <input type="password" required>
+        </div>
+        <div class="form-group">
+          <label>Confirm Password:</label>
+          <input type="password" required>
+        </div>
+        <button type="submit">Register</button>
+      </form>
     </div>
-    
-    <div class="card">
-      <h2>Latest Announcements</h2>
-      <div class="alert alert-success">
-        <i class="fas fa-bullhorn"></i> <strong>Important:</strong> Semester break begins from next week. All students must vacate rooms by 15th.
-      </div>
-      <div class="alert alert-error">
-        <i class="fas fa-exclamation-triangle"></i> <strong>Notice:</strong> Internet maintenance scheduled for tomorrow from 10 PM to 2 AM.
-      </div>
-    </div>
-    
-    <div class="stats-grid">
-      <div class="stat-card">
-        <i class="fas fa-users"></i>
-        <h3>450</h3>
-        <p>Current Residents</p>
-      </div>
-      <div class="stat-card">
-        <i class="fas fa-bed"></i>
-        <h3>25</h3>
-        <p>Rooms Available</p>
-      </div>
-      <div class="stat-card">
-        <i class="fas fa-utensils"></i>
-        <h3>3</h3>
-        <p>Meal Options Today</p>
-      </div>
-      <div class="stat-card">
-        <i class="fas fa-calendar"></i>
-        <h3>5</h3>
-        <p>Upcoming Events</p>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- Login Modal -->
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeLoginModal()">&times;</span>
-    <h2>Student Login</h2>
-    <form>
-      <div class="form-group">
-        <label>Student ID:</label>
-        <input type="text" required>
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" required>
-      </div>
-      <button type="submit">Login</button>
-    </form>
-    <p style="text-align: center; margin-top: 20px;">
-      <a href="#">Forgot Password?</a>
-    </p>
   </div>
-</div>
-
-<!-- Register Modal -->
-<div id="registerModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeRegisterModal()">&times;</span>
-    <h2>Student Registration</h2>
-    <form>
-      <div class="form-group">
-        <label>Full Name:</label>
-        <input type="text" required>
-      </div>
-      <div class="form-group">
-        <label>Student ID:</label>
-        <input type="text" required>
-      </div>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" required>
-      </div>
-      <div class="form-group">
-        <label>Phone Number:</label>
-        <input type="tel" required>
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" required>
-      </div>
-      <div class="form-group">
-        <label>Confirm Password:</label>
-        <input type="password" required>
-      </div>
-      <button type="submit">Register</button>
-    </form>
-  </div>
-</div>
- <section id="about">
-    <div class="hero" style="background-image: url('images/about.jpeg'); background-size: cover; background-position: center; height: 80vh;"></div>
+  <section id="about">
+    <div class="hero"
+      style="background-image: url('images/about.jpeg'); background-size: cover; background-position: center; height: 80vh;">
+    </div>
     <div class="about-content">
       <p>
 
-Mir Mosharraf Hossain Hall is a male residential hall of Jahangirnagar University, established in 1991 and named after the famous Bengali novelist Mir Mosharraf Hossain. It is renowned for its butterfly-shaped modernist design by architect Muzharul Islam, considered one of the finest examples of campus architecture in Bangladesh. The hall covers about 2.81 acres with around 490 rooms in two blocks, housing a large number of students. It has been recognized as one of the top ten contemporary buildings in the country. Currently, Md. Mahmudur Rahman serves as the provost, following a legacy of notable hall leadership. The hall holds cultural, architectural, and historical significance for the university.</p>
+        Mir Mosharraf Hossain Hall is a male residential hall of Jahangirnagar University, established in 1991 and named
+        after the famous Bengali novelist Mir Mosharraf Hossain. It is renowned for its butterfly-shaped modernist
+        design by architect Muzharul Islam, considered one of the finest examples of campus architecture in Bangladesh.
+        The hall covers about 2.81 acres with around 490 rooms in two blocks, housing a large number of students. It has
+        been recognized as one of the top ten contemporary buildings in the country. Currently, Md. Mahmudur Rahman
+        serves as the provost, following a legacy of notable hall leadership. The hall holds cultural, architectural,
+        and historical significance for the university.</p>
       <div class="details">
         <p><strong>Provost:</strong> Dr. Md. Rahim Uddin</p>
         <p><strong>Established:</strong> 1991</p>
         <p><strong>Facilities:</strong> Library, Canteen, Prayer Room, Wi-Fi, Study Room, Sports Ground, Security</p>
         <p><strong>Location:</strong> Jahangirnagar University, Savar, Dhaka, Bangladesh</p>
       </div>
-      
+
       <h3>Hall Gallery</h3>
       <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
-        <div style="width: 200px; height: 200px; background-image: url('images/hall.jpeg'); background-size: cover; background-position: center;"></div>
-        <div style="width: 200px; height: 200px; background-image: url('images/hall-inside.jpeg'); background-size: cover; background-position: center;"></div>
-        <div style="width: 200px; height: 200px; background-image: url('images/hall-field.jpeg'); background-size: cover; background-position: center;"></div>
+        <div
+          style="width: 200px; height: 200px; background-image: url('images/hall.jpeg'); background-size: cover; background-position: center;">
+        </div>
+        <div
+          style="width: 200px; height: 200px; background-image: url('images/hall-inside.jpeg'); background-size: cover; background-position: center;">
+        </div>
+        <div
+          style="width: 200px; height: 200px; background-image: url('images/hall-field.jpeg'); background-size: cover; background-position: center;">
+        </div>
       </div>
     </div>
   </section>
   </section>
-   <section id="services">
+  <section id="services">
     <h2 style="text-align:center; margin-bottom:20px;">OUR SERVICES</h2>
     <div class="services-grid">
       <div class="service-card">
@@ -206,14 +227,16 @@ Mir Mosharraf Hossain Hall is a male residential hall of Jahangirnagar Universit
       </div>
     </div>
   </section>
-</section>
-    <section id="administration">
-    <div class="hero" style="background-image: url('images/hall administation.jpeg'); background-size: cover; background-position: center; height: 400px;"></div>
-    
+  </section>
+  <section id="administration">
+    <div class="hero"
+      style="background-image: url('images/hall administation.jpeg'); background-size: cover; background-position: center; height: 400px;">
+    </div>
+
     <div class="card">
       <h2><i class="fas fa-user-tie"></i> Hall Administration</h2>
       <p>Meet our dedicated hall administration team committed to providing excellent service to all residents.</p>
-      
+
       <div class="admin-profile">
         <div class="admin-card">
           <div class="admin-card-header">
@@ -229,7 +252,7 @@ Mir Mosharraf Hossain Hall is a male residential hall of Jahangirnagar Universit
                 <p><strong>Education:</strong> PhD in Economics, University of Dhaka</p>
               </div>
             </div>
-            
+
             <div class="contact-info">
               <div class="contact-item">
                 <div class="contact-icon">
@@ -316,7 +339,7 @@ Mir Mosharraf Hossain Hall is a male residential hall of Jahangirnagar Universit
           </div>
         </div>
       </div>
-      
+
       <h3>Other Administrative Staff</h3>
       <table>
         <thead>
@@ -349,561 +372,778 @@ Mir Mosharraf Hossain Hall is a male residential hall of Jahangirnagar Universit
         </tbody>
       </table>
       <h3 style="margin-top: 30px;">Office Hours</h3>
-      <p>The hall administration office is open from 9:00 AM to 5:00 PM, Sunday through Thursday. Friday and Saturday are weekends.</p>
-      
+      <p>The hall administration office is open from 9:00 AM to 5:00 PM, Sunday through Thursday. Friday and Saturday
+        are weekends.</p>
+
       <h3>Meeting with Administration</h3>
-      <p>Residents can schedule appointments with administration members through the hall office. Emergency matters will be addressed promptly.</p>
+      <p>Residents can schedule appointments with administration members through the hall office. Emergency matters will
+        be addressed promptly.</p>
     </div>
   </section>
   <section id="paybill" class="active">
-  <div class="card">
-    <h2><i class="fas fa-money-bill-wave"></i> Pay Hall Bill</h2>
-    <form id="billForm">
-      <div class="form-group">
-        <label>Student ID:</label>
-        <input type="text" id="studentId" required>
-      </div>
-      <div class="form-group">
-        <label>Amount (BDT):</label>
-        <input type="number" id="amount" required>
-      </div>
-      <div class="form-group">
-        <label>Payment Method:</label>
-        <select id="method" required>
-          <option value="">Select Method</option>
-          <option>bKash</option>
-          <option>Nagad</option>
-          <option>Rocket</option>
-          <option>Bank Transfer</option>
-        </select>
-      </div>
-      <button type="submit"><i class="fas fa-check"></i> Pay Now</button>
-    </form>
-    <div id="billMsg" class="alert alert-success" style="display: none;"></div>
-    
-    <h3>Payment History</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Amount</th>
-          <th>Method</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>15-08-2023</td>
-          <td>2,500 BDT</td>
-          <td>BKash</td>
-          <td>Completed</td>
-        </tr>
-        <tr>
-          <td>15-07-2023</td>
-          <td>2,500 BDT</td>
-          <td>Nagad</td>
-          <td>Completed</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>  
-<section id="room" class="active">
-  <div class="card">
-    <h2><i class="fas fa-bed"></i> Room Allocation</h2>
-    
-    <div class="room-form-container">
-      <form id="roomForm">
-        <div class="form-group">
-          <label>Student Name:</label>
-          <input type="text" id="name" required>
-        </div>
+    <div class="card">
+      <h2><i class="fas fa-money-bill-wave"></i> Pay Hall Bill</h2>
+      <form id="billForm">
         <div class="form-group">
           <label>Student ID:</label>
-          <input type="text" id="roomId" required>
+          <input type="text" id="studentId" required>
         </div>
         <div class="form-group">
-          <label>Select Room:</label>
-          <select id="roomSelect" required>
-            <option value="">Select Room</option>
-            <option>101 (Single)</option>
-            <option>102 (Single)</option>
-            <option>201 (Double)</option>
-            <option>202 (Double)</option>
-            <option>301 (Triple)</option>
-            <option>302 (Triple)</option>
+          <label>Amount (BDT):</label>
+          <input type="number" id="amount" required>
+        </div>
+        <div class="form-group">
+          <label>Payment Method:</label>
+          <select id="method" required>
+            <option value="">Select Method</option>
+            <option>bKash</option>
+            <option>Nagad</option>
+            <option>Rocket</option>
+            <option>Bank Transfer</option>
           </select>
         </div>
-        <button type="submit"><i class="fas fa-check"></i> Allocate Room</button>
+        <button type="submit"><i class="fas fa-check"></i> Pay Now</button>
       </form>
-      
-      <div class="room-visualization">
-        <h3>Room Availability</h3>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 75%;"></div>
-        </div>
-        <p>75% of rooms occupied (120 out of 160)</p>
-        
-        <div class="floor-plan">
-          <h4>Floor Plan Overview</h4>
-          <div class="floor">
-            <h5>First Floor</h5>
-            <div class="room-grid">
-              <div class="room-item available">101</div>
-              <div class="room-item occupied">102</div>
-              <div class="room-item available">103</div>
-              <div class="room-item occupied">104</div>
-            </div>
-          </div>
-          <div class="floor">
-            <h5>Second Floor</h5>
-            <div class="room-grid">
-              <div class="room-item occupied">201</div>
-              <div class="room-item available">202</div>
-              <div class="room-item occupied">203</div>
-              <div class="room-item occupied">204</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="billMsg" class="alert alert-success" style="display: none;"></div>
+
+      <h3>Payment History</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Method</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>15-08-2023</td>
+            <td>2,500 BDT</td>
+            <td>BKash</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <td>15-07-2023</td>
+            <td>2,500 BDT</td>
+            <td>Nagad</td>
+            <td>Completed</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    
-    <div id="roomList">
-      <h3>Current Allocation</h3>
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Room No</th>
-              <th>Type</th>
-              <th>Occupants</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>101</td>
-              <td>Single</td>
-              <td>Rahim Ahmed</td>
-              <td><span class="status-badge occupied-badge">Occupied</span></td>
-              <td><button class="action-btn view-btn"><i class="fas fa-eye"></i></button></td>
-            </tr>
-            <tr>
-              <td>102</td>
-              <td>Single</td>
-              <td>-</td>
-              <td><span class="status-badge available-badge">Available</span></td>
-              <td><button class="action-btn allocate-btn"><i class="fas fa-user-plus"></i></button></td>
-            </tr>
-            <tr>
-              <td>201</td>
-              <td>Double</td>
-              <td>Karim, Jamal</td>
-              <td><span class="status-badge occupied-badge">Occupied</span></td>
-              <td><button class="action-btn view-btn"><i class="fas fa-eye"></i></button></td>
-            </tr>
-            <tr>
-              <td>202</td>
-              <td>Double</td>
-              <td>-</td>
-              <td><span class="status-badge available-badge">Available</span></td>
-              <td><button class="action-btn allocate-btn"><i class="fas fa-user-plus"></i></button></td>
-            </tr>
-            <tr>
-              <td>301</td>
-              <td>Triple</td>
-              <td>Shafiq, Ratan, Sohel</td>
-              <td><span class="status-badge occupied-badge">Occupied</span></td>
-              <td><button class="action-btn view-btn"><i class="fas fa-eye"></i></button></td>
-            </tr>
-            <tr>
-              <td>302</td>
-              <td>Triple</td>
-              <td>-</td>
-              <td><span class="status-badge available-badge">Available</span></td>
-              <td><button class="action-btn allocate-btn"><i class="fas fa-user-plus"></i></button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>  
-<section id="notice" class="active">
-  <div class="card">
-    <h2><i class="fas fa-clipboard-list"></i> Hall Notice Board</h2>
-    
-    <div class="notice-controls">
-      <div class="filter-options">
-        <button class="filter-btn active" data-filter="all">All Notices</button>
-        <button class="filter-btn" data-filter="important">Important</button>
-        <button class="filter-btn" data-filter="general">General</button>
-        <button class="filter-btn" data-filter="event">Events</button>
-      </div>
-      
-      <div class="search-box">
-        <input type="text" id="noticeSearch" placeholder="Search notices...">
-        <i class="fas fa-search"></i>
-      </div>
-    </div>
-    
-    <form id="noticeForm">
-      <h3>Post New Notice</h3>
-      <div class="form-group">
-        <label>Title:</label>
-        <input type="text" id="noticeTitle" required>
-      </div>
-      <div class="form-group">
-        <label>Category:</label>
-        <select id="noticeCategory" required>
-          <option value="">Select Category</option>
-          <option value="important">Important</option>
-          <option value="general">General</option>
-          <option value="event">Event</option>
-          <option value="maintenance">Maintenance</option>
-          <option value="academic">Academic</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Description:</label>
-        <textarea id="noticeDesc" rows="4" required></textarea>
-      </div>
-      <div class="form-group">
-        <label>Expiry Date (optional):</label>
-        <input type="date" id="noticeExpiry">
-      </div>
-      <button type="submit"><i class="fas fa-plus"></i> Post Notice</button>
-    </form>
-    
-    <div id="noticeList">
-      <h3>Recent Notices <span class="notice-count">(6 notices)</span></h3>
-      
-      <div class="notice-item important">
-        <div class="notice-header">
-          <h4>Internet Maintenance</h4>
-          <div class="notice-meta">
-            <span class="notice-category">Important</span>
-            <span class="notice-date">Posted: 12-10-2023</span>
-            <span class="notice-expiry">Expires: 15-10-2023</span>
-          </div>
-        </div>
-        <div class="notice-content">
-          <p>Internet maintenance scheduled for tomorrow from 10 PM to 2 AM. There might be disruptions in internet service during this period.</p>
-        </div>
-        <div class="notice-actions">
-          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
-          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
-          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
-        </div>
-      </div>
-      
-      <div class="notice-item maintenance">
-        <div class="notice-header">
-          <h4>Water Supply Issue</h4>
-          <div class="notice-meta">
-            <span class="notice-category">Maintenance</span>
-            <span class="notice-date">Posted: 10-10-2023</span>
-            <span class="notice-expiry">Expires: 12-10-2023</span>
-          </div>
-        </div>
-        <div class="notice-content">
-          <p>There will be no water supply from 10 AM to 4 PM next Sunday due to pipeline maintenance work. Please store water accordingly.</p>
-        </div>
-        <div class="notice-actions">
-          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
-          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
-          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
-        </div>
-      </div>
-      
-      <div class="notice-item event">
-        <div class="notice-header">
-          <h4>Cultural Night Event</h4>
-          <div class="notice-meta">
-            <span class="notice-category">Event</span>
-            <span class="notice-date">Posted: 08-10-2023</span>
-            <span class="notice-expiry">Expires: 26-10-2023</span>
-          </div>
-        </div>
-        <div class="notice-content">
-          <p>Join us for the annual Cultural Night on October 25th. There will be music, dance, and food stalls. All residents are welcome!</p>
-        </div>
-        <div class="notice-actions">
-          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
-          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
-          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
-        </div>
-      </div>
-      
-      <div class="notice-item academic">
-        <div class="notice-header">
-          <h4>Midterm Exam Schedule</h4>
-          <div class="notice-meta">
-            <span class="notice-category">Academic</span>
-            <span class="notice-date">Posted: 05-10-2023</span>
-            <span class="notice-expiry">Expires: 30-10-2023</span>
-          </div>
-        </div>
-        <div class="notice-content">
-          <p>The midterm examination schedule has been posted on the university website. Please check your exam dates and times.</p>
-        </div>
-        <div class="notice-actions">
-          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
-          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
-          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
-        </div>
-      </div>
-      
-      <div class="notice-item general">
-        <div class="notice-header">
-          <h4>Common Room Cleaning</h4>
-          <div class="notice-meta">
-            <span class="notice-category">General</span>
-            <span class="notice-date">Posted: 03-10-2023</span>
-            <span class="notice-expiry">Expires: 05-10-2023</span>
-          </div>
-        </div>
-        <div class="notice-content">
-          <p>The common room will be cleaned this Friday. Please remove all personal belongings by Thursday evening.</p>
-        </div>
-        <div class="notice-actions">
-          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
-          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
-          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
-        </div>
-      </div>
-      
-      <div class="notice-item important">
-        <div class="notice-header">
-          <h4>Semester Break Notice</h4>
-          <div class="notice-meta">
-            <span class="notice-category">Important</span>
-            <span class="notice-date">Posted: 01-10-2023</span>
-            <span class="notice-expiry">Expires: 20-10-2023</span>
-          </div>
-        </div>
-        <div class="notice-content">
-          <p>Semester break begins from next week. All students must vacate rooms by 15th. Please complete the checkout procedure at the hall office.</p>
-        </div>
-        <div class="notice-actions">
-          <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
-          <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
-          <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>  
-<section id="booking" class="active">
-  <div class="card">
-    <h2><i class="fas fa-calendar-check"></i> Facility Booking</h2>
-    
-    <div class="booking-container">
-      <div class="facility-selection">
-        <h3>Select a Facility</h3>
-        <div class="facility-cards">
-          <div class="facility-card" data-facility="study-room">
-            <div class="facility-icon">
-              <i class="fas fa-book"></i>
-            </div>
-            <h4>Study Room</h4>
-            <p>Quiet space for individual or group study</p>
-            <div class="facility-info">
-              <span><i class="fas fa-users"></i> Capacity: 20 people</span>
-              <span><i class="fas fa-clock"></i> 8 AM - 10 PM</span>
-            </div>
-          </div>
-          
-          <div class="facility-card" data-facility="sports-ground">
-            <div class="facility-icon">
-              <i class="fas fa-futbol"></i>
-            </div>
-            <h4>Sports Ground</h4>
-            <p>Outdoor field for various sports activities</p>
-            <div class="facility-info">
-              <span><i class="fas fa-users"></i> Capacity: 40 people</span>
-              <span><i class="fas fa-clock"></i> 6 AM - 8 PM</span>
-            </div>
-          </div>
-          
-          <div class="facility-card" data-facility="conference-room">
-            <div class="facility-icon">
-              <i class="fas fa-chalkboard"></i>
-            </div>
-            <h4>Conference Room</h4>
-            <p>Meeting space with presentation equipment</p>
-            <div class="facility-info">
-              <span><i class="fas fa-users"></i> Capacity: 30 people</span>
-              <span><i class="fas fa-clock"></i> 9 AM - 9 PM</span>
-            </div>
-          </div>
-          
-          <div class="facility-card" data-facility="tv-room">
-            <div class="facility-icon">
-              <i class="fas fa-tv"></i>
-            </div>
-            <h4>TV Room</h4>
-            <p>Entertainment space with large screen TV</p>
-            <div class="facility-info">
-              <span><i class="fas fa-users"></i> Capacity: 15 people</span>
-              <span><i class="fas fa-clock"></i> 10 AM - 11 PM</span>
-            </div>
-          </div>
-          
-          <div class="facility-card" data-facility="common-room">
-            <div class="facility-icon">
-              <i class="fas fa-couch"></i>
-            </div>
-            <h4>Common Room</h4>
-            <p>Relaxation area with comfortable seating</p>
-            <div class="facility-info">
-              <span><i class="fas fa-users"></i> Capacity: 25 people</span>
-              <span><i class="fas fa-clock"></i> 7 AM - 11 PM</span>
-            </div>
-          </div>
-          
-          <div class="facility-card" data-facility="dining-hall">
-            <div class="facility-icon">
-              <i class="fas fa-utensils"></i>
-            </div>
-            <h4>Dining Hall</h4>
-            <p>Space for events and gatherings with catering</p>
-            <div class="facility-info">
-              <span><i class="fas fa-users"></i> Capacity: 100 people</span>
-              <span><i class="fas fa-clock"></i> 10 AM - 8 PM</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="booking-form-section">
-        <h3>Book Your Facility</h3>
-        <form id="bookingForm">
-          <div class="form-group">
-            <label>Selected Facility:</label>
-            <div id="selectedFacility" class="selected-facility-display">
-              Please select a facility
-            </div>
-          </div>
-          
+  </section>
+  <section id="room" class="active">
+    <div class="card">
+      <h2><i class="fas fa-bed"></i> Room Allocation</h2>
+
+      <div class="room-form-container">
+        <form id="roomForm">
           <div class="form-group">
             <label>Student Name:</label>
-            <input type="text" id="bookingName" required>
+            <input type="text" id="name" required>
           </div>
-          
           <div class="form-group">
             <label>Student ID:</label>
-            <input type="text" id="bookingId" required>
+            <input type="text" id="roomId" required>
           </div>
-          
           <div class="form-group">
-            <label>Date:</label>
-            <input type="date" id="bookingDate" required min="">
-          </div>
-          
-          <div class="form-group">
-            <label>Time Slot:</label>
-            <select id="bookingTime" required>
-              <option value="">Select Time</option>
-              <option>8:00 AM - 10:00 AM</option>
-              <option>10:00 AM - 12:00 PM</option>
-              <option>12:00 PM - 2:00 PM</option>
-              <option>2:00 PM - 4:00 PM</option>
-              <option>4:00 PM - 6:00 PM</option>
-              <option>6:00 PM - 8:00 PM</option>
-              <option>8:00 PM - 10:00 PM</option>
+            <label>Select Room:</label>
+            <select id="roomSelect" required>
+              <option value="">Select Room</option>
+              <option>101 (Single)</option>
+              <option>102 (Single)</option>
+              <option>201 (Double)</option>
+              <option>202 (Double)</option>
+              <option>301 (Triple)</option>
+              <option>302 (Triple)</option>
             </select>
           </div>
-          
-          <div class="form-group">
-            <label>Purpose of Booking:</label>
-            <textarea id="bookingPurpose" rows="3" placeholder="Briefly describe the purpose of your booking..."></textarea>
-          </div>
-          
-          <div class="form-group">
-            <label>Number of Participants:</label>
-            <input type="number" id="participants" min="1" value="1">
-          </div>
-          
-          <button type="submit"><i class="fas fa-check"></i> Book Facility</button>
+          <button type="submit"><i class="fas fa-check"></i> Allocate Room</button>
         </form>
-      </div>
-    </div>
-    
-    <div class="booking-calendar">
-      <h3>Availability Calendar</h3>
-      <div class="calendar-navigation">
-        <button id="prevWeek"><i class="fas fa-chevron-left"></i></button>
-        <h4 id="calendarTitle">This Week</h4>
-        <button id="nextWeek"><i class="fas fa-chevron-right"></i></button>
-      </div>
-      <div id="calendarView" class="calendar-view">
-        <!-- Calendar will be generated by JavaScript -->
-      </div>
-    </div>
-    
-    <div id="bookingList">
-      <h3>My Bookings</h3>
-      <div class="bookings-filter">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="upcoming">Upcoming</button>
-        <button class="filter-btn" data-filter="past">Past</button>
-      </div>
-      
-      <div class="bookings-container">
-        <div class="booking-item upcoming">
-          <div class="booking-details">
-            <h4>Study Room</h4>
-            <div class="booking-meta">
-              <span><i class="fas fa-calendar"></i> 15-10-2023</span>
-              <span><i class="fas fa-clock"></i> 2:00 PM - 4:00 PM</span>
-              <span class="status confirmed">Confirmed</span>
-            </div>
-            <p>Group study session for midterm exams</p>
-          </div>
-          <div class="booking-actions">
-            <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
-            <button class="action-btn cancel-btn"><i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        
-        <div class="booking-item upcoming">
-          <div class="booking-details">
-            <h4>Sports Ground</h4>
-            <div class="booking-meta">
-              <span><i class="fas fa-calendar"></i> 18-10-2023</span>
-              <span><i class="fas fa-clock"></i> 4:00 PM - 6:00 PM</span>
-              <span class="status pending">Pending</span>
-            </div>
-            <p>Football practice with hall team</p>
-          </div>
-          <div class="booking-actions">
-            <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
-            <button class="action-btn cancel-btn"><i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        
-        <div class="booking-item past">
-          <div class="booking-details">
-            <h4>Conference Room</h4>
-            <div class="booking-meta">
-              <span><i class="fas fa-calendar"></i> 10-10-2023</span>
-              <span><i class="fas fa-clock"></i> 3:00 PM - 5:00 PM</span>
-              <span class="status completed">Completed</span>
-            </div>
-            <p>Student committee meeting</p>
-          </div>
-          <div class="booking-actions">
-            <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-  
-<script src="js/index.js"></script>
+        <div class="room-visualization">
+          <h3>Room Availability</h3>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 75%;"></div>
+          </div>
+          <p>75% of rooms occupied (120 out of 160)</p>
+
+          <div class="floor-plan">
+            <h4>Floor Plan Overview</h4>
+            <div class="floor">
+              <h5>First Floor</h5>
+              <div class="room-grid">
+                <div class="room-item available">101</div>
+                <div class="room-item occupied">102</div>
+                <div class="room-item available">103</div>
+                <div class="room-item occupied">104</div>
+              </div>
+            </div>
+            <div class="floor">
+              <h5>Second Floor</h5>
+              <div class="room-grid">
+                <div class="room-item occupied">201</div>
+                <div class="room-item available">202</div>
+                <div class="room-item occupied">203</div>
+                <div class="room-item occupied">204</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="roomList">
+        <h3>Current Allocation</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Room No</th>
+                <th>Type</th>
+                <th>Occupants</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101</td>
+                <td>Single</td>
+                <td>Rahim Ahmed</td>
+                <td><span class="status-badge occupied-badge">Occupied</span></td>
+                <td><button class="action-btn view-btn"><i class="fas fa-eye"></i></button></td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td>Single</td>
+                <td>-</td>
+                <td><span class="status-badge available-badge">Available</span></td>
+                <td><button class="action-btn allocate-btn"><i class="fas fa-user-plus"></i></button></td>
+              </tr>
+              <tr>
+                <td>201</td>
+                <td>Double</td>
+                <td>Karim, Jamal</td>
+                <td><span class="status-badge occupied-badge">Occupied</span></td>
+                <td><button class="action-btn view-btn"><i class="fas fa-eye"></i></button></td>
+              </tr>
+              <tr>
+                <td>202</td>
+                <td>Double</td>
+                <td>-</td>
+                <td><span class="status-badge available-badge">Available</span></td>
+                <td><button class="action-btn allocate-btn"><i class="fas fa-user-plus"></i></button></td>
+              </tr>
+              <tr>
+                <td>301</td>
+                <td>Triple</td>
+                <td>Shafiq, Ratan, Sohel</td>
+                <td><span class="status-badge occupied-badge">Occupied</span></td>
+                <td><button class="action-btn view-btn"><i class="fas fa-eye"></i></button></td>
+              </tr>
+              <tr>
+                <td>302</td>
+                <td>Triple</td>
+                <td>-</td>
+                <td><span class="status-badge available-badge">Available</span></td>
+                <td><button class="action-btn allocate-btn"><i class="fas fa-user-plus"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="notice" class="active">
+    <div class="card">
+      <h2><i class="fas fa-clipboard-list"></i> Hall Notice Board</h2>
+
+      <div class="notice-controls">
+        <div class="filter-options">
+          <button class="filter-btn active" data-filter="all">All Notices</button>
+          <button class="filter-btn" data-filter="important">Important</button>
+          <button class="filter-btn" data-filter="general">General</button>
+          <button class="filter-btn" data-filter="event">Events</button>
+        </div>
+
+        <div class="search-box">
+          <input type="text" id="noticeSearch" placeholder="Search notices...">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+
+      <form id="noticeForm">
+        <h3>Post New Notice</h3>
+        <div class="form-group">
+          <label>Title:</label>
+          <input type="text" id="noticeTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Category:</label>
+          <select id="noticeCategory" required>
+            <option value="">Select Category</option>
+            <option value="important">Important</option>
+            <option value="general">General</option>
+            <option value="event">Event</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="academic">Academic</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea id="noticeDesc" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Expiry Date (optional):</label>
+          <input type="date" id="noticeExpiry">
+        </div>
+        <button type="submit"><i class="fas fa-plus"></i> Post Notice</button>
+      </form>
+
+      <div id="noticeList">
+        <h3>Recent Notices <span class="notice-count">(6 notices)</span></h3>
+
+        <div class="notice-item important">
+          <div class="notice-header">
+            <h4>Internet Maintenance</h4>
+            <div class="notice-meta">
+              <span class="notice-category">Important</span>
+              <span class="notice-date">Posted: 12-10-2023</span>
+              <span class="notice-expiry">Expires: 15-10-2023</span>
+            </div>
+          </div>
+          <div class="notice-content">
+            <p>Internet maintenance scheduled for tomorrow from 10 PM to 2 AM. There might be disruptions in internet
+              service during this period.</p>
+          </div>
+          <div class="notice-actions">
+            <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+            <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+            <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+
+        <div class="notice-item maintenance">
+          <div class="notice-header">
+            <h4>Water Supply Issue</h4>
+            <div class="notice-meta">
+              <span class="notice-category">Maintenance</span>
+              <span class="notice-date">Posted: 10-10-2023</span>
+              <span class="notice-expiry">Expires: 12-10-2023</span>
+            </div>
+          </div>
+          <div class="notice-content">
+            <p>There will be no water supply from 10 AM to 4 PM next Sunday due to pipeline maintenance work. Please
+              store water accordingly.</p>
+          </div>
+          <div class="notice-actions">
+            <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+            <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+            <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+
+        <div class="notice-item event">
+          <div class="notice-header">
+            <h4>Cultural Night Event</h4>
+            <div class="notice-meta">
+              <span class="notice-category">Event</span>
+              <span class="notice-date">Posted: 08-10-2023</span>
+              <span class="notice-expiry">Expires: 26-10-2023</span>
+            </div>
+          </div>
+          <div class="notice-content">
+            <p>Join us for the annual Cultural Night on October 25th. There will be music, dance, and food stalls. All
+              residents are welcome!</p>
+          </div>
+          <div class="notice-actions">
+            <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+            <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+            <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+
+        <div class="notice-item academic">
+          <div class="notice-header">
+            <h4>Midterm Exam Schedule</h4>
+            <div class="notice-meta">
+              <span class="notice-category">Academic</span>
+              <span class="notice-date">Posted: 05-10-2023</span>
+              <span class="notice-expiry">Expires: 30-10-2023</span>
+            </div>
+          </div>
+          <div class="notice-content">
+            <p>The midterm examination schedule has been posted on the university website. Please check your exam dates
+              and times.</p>
+          </div>
+          <div class="notice-actions">
+            <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+            <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+            <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+
+        <div class="notice-item general">
+          <div class="notice-header">
+            <h4>Common Room Cleaning</h4>
+            <div class="notice-meta">
+              <span class="notice-category">General</span>
+              <span class="notice-date">Posted: 03-10-2023</span>
+              <span class="notice-expiry">Expires: 05-10-2023</span>
+            </div>
+          </div>
+          <div class="notice-content">
+            <p>The common room will be cleaned this Friday. Please remove all personal belongings by Thursday evening.
+            </p>
+          </div>
+          <div class="notice-actions">
+            <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+            <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+            <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+
+        <div class="notice-item important">
+          <div class="notice-header">
+            <h4>Semester Break Notice</h4>
+            <div class="notice-meta">
+              <span class="notice-category">Important</span>
+              <span class="notice-date">Posted: 01-10-2023</span>
+              <span class="notice-expiry">Expires: 20-10-2023</span>
+            </div>
+          </div>
+          <div class="notice-content">
+            <p>Semester break begins from next week. All students must vacate rooms by 15th. Please complete the
+              checkout procedure at the hall office.</p>
+          </div>
+          <div class="notice-actions">
+            <button class="action-btn view-btn"><i class="fas fa-eye"></i> View Details</button>
+            <button class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</button>
+            <button class="action-btn delete-btn"><i class="fas fa-trash"></i> Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="booking" class="active">
+    <div class="card">
+      <h2><i class="fas fa-calendar-check"></i> Facility Booking</h2>
+
+      <div class="booking-container">
+        <div class="facility-selection">
+          <h3>Select a Facility</h3>
+          <div class="facility-cards">
+            <div class="facility-card" data-facility="study-room">
+              <div class="facility-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <h4>Study Room</h4>
+              <p>Quiet space for individual or group study</p>
+              <div class="facility-info">
+                <span><i class="fas fa-users"></i> Capacity: 20 people</span>
+                <span><i class="fas fa-clock"></i> 8 AM - 10 PM</span>
+              </div>
+            </div>
+
+            <div class="facility-card" data-facility="sports-ground">
+              <div class="facility-icon">
+                <i class="fas fa-futbol"></i>
+              </div>
+              <h4>Sports Ground</h4>
+              <p>Outdoor field for various sports activities</p>
+              <div class="facility-info">
+                <span><i class="fas fa-users"></i> Capacity: 40 people</span>
+                <span><i class="fas fa-clock"></i> 6 AM - 8 PM</span>
+              </div>
+            </div>
+
+            <div class="facility-card" data-facility="conference-room">
+              <div class="facility-icon">
+                <i class="fas fa-chalkboard"></i>
+              </div>
+              <h4>Conference Room</h4>
+              <p>Meeting space with presentation equipment</p>
+              <div class="facility-info">
+                <span><i class="fas fa-users"></i> Capacity: 30 people</span>
+                <span><i class="fas fa-clock"></i> 9 AM - 9 PM</span>
+              </div>
+            </div>
+
+            <div class="facility-card" data-facility="tv-room">
+              <div class="facility-icon">
+                <i class="fas fa-tv"></i>
+              </div>
+              <h4>TV Room</h4>
+              <p>Entertainment space with large screen TV</p>
+              <div class="facility-info">
+                <span><i class="fas fa-users"></i> Capacity: 15 people</span>
+                <span><i class="fas fa-clock"></i> 10 AM - 11 PM</span>
+              </div>
+            </div>
+
+            <div class="facility-card" data-facility="common-room">
+              <div class="facility-icon">
+                <i class="fas fa-couch"></i>
+              </div>
+              <h4>Common Room</h4>
+              <p>Relaxation area with comfortable seating</p>
+              <div class="facility-info">
+                <span><i class="fas fa-users"></i> Capacity: 25 people</span>
+                <span><i class="fas fa-clock"></i> 7 AM - 11 PM</span>
+              </div>
+            </div>
+
+            <div class="facility-card" data-facility="dining-hall">
+              <div class="facility-icon">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <h4>Dining Hall</h4>
+              <p>Space for events and gatherings with catering</p>
+              <div class="facility-info">
+                <span><i class="fas fa-users"></i> Capacity: 100 people</span>
+                <span><i class="fas fa-clock"></i> 10 AM - 8 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-form-section">
+          <h3>Book Your Facility</h3>
+          <form id="bookingForm">
+            <div class="form-group">
+              <label>Selected Facility:</label>
+              <div id="selectedFacility" class="selected-facility-display">
+                Please select a facility
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Student Name:</label>
+              <input type="text" id="bookingName" required>
+            </div>
+
+            <div class="form-group">
+              <label>Student ID:</label>
+              <input type="text" id="bookingId" required>
+            </div>
+
+            <div class="form-group">
+              <label>Date:</label>
+              <input type="date" id="bookingDate" required min="">
+            </div>
+
+            <div class="form-group">
+              <label>Time Slot:</label>
+              <select id="bookingTime" required>
+                <option value="">Select Time</option>
+                <option>8:00 AM - 10:00 AM</option>
+                <option>10:00 AM - 12:00 PM</option>
+                <option>12:00 PM - 2:00 PM</option>
+                <option>2:00 PM - 4:00 PM</option>
+                <option>4:00 PM - 6:00 PM</option>
+                <option>6:00 PM - 8:00 PM</option>
+                <option>8:00 PM - 10:00 PM</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Purpose of Booking:</label>
+              <textarea id="bookingPurpose" rows="3"
+                placeholder="Briefly describe the purpose of your booking..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Number of Participants:</label>
+              <input type="number" id="participants" min="1" value="1">
+            </div>
+
+            <button type="submit"><i class="fas fa-check"></i> Book Facility</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="booking-calendar">
+        <h3>Availability Calendar</h3>
+        <div class="calendar-navigation">
+          <button id="prevWeek"><i class="fas fa-chevron-left"></i></button>
+          <h4 id="calendarTitle">This Week</h4>
+          <button id="nextWeek"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div id="calendarView" class="calendar-view">
+          <!-- Calendar will be generated by JavaScript -->
+        </div>
+      </div>
+
+      <div id="bookingList">
+        <h3>My Bookings</h3>
+        <div class="bookings-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+          <button class="filter-btn" data-filter="past">Past</button>
+        </div>
+
+        <div class="bookings-container">
+          <div class="booking-item upcoming">
+            <div class="booking-details">
+              <h4>Study Room</h4>
+              <div class="booking-meta">
+                <span><i class="fas fa-calendar"></i> 15-10-2023</span>
+                <span><i class="fas fa-clock"></i> 2:00 PM - 4:00 PM</span>
+                <span class="status confirmed">Confirmed</span>
+              </div>
+              <p>Group study session for midterm exams</p>
+            </div>
+            <div class="booking-actions">
+              <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
+              <button class="action-btn cancel-btn"><i class="fas fa-times"></i></button>
+            </div>
+          </div>
+
+          <div class="booking-item upcoming">
+            <div class="booking-details">
+              <h4>Sports Ground</h4>
+              <div class="booking-meta">
+                <span><i class="fas fa-calendar"></i> 18-10-2023</span>
+                <span><i class="fas fa-clock"></i> 4:00 PM - 6:00 PM</span>
+                <span class="status pending">Pending</span>
+              </div>
+              <p>Football practice with hall team</p>
+            </div>
+            <div class="booking-actions">
+              <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
+              <button class="action-btn cancel-btn"><i class="fas fa-times"></i></button>
+            </div>
+          </div>
+
+          <div class="booking-item past">
+            <div class="booking-details">
+              <h4>Conference Room</h4>
+              <div class="booking-meta">
+                <span><i class="fas fa-calendar"></i> 10-10-2023</span>
+                <span><i class="fas fa-clock"></i> 3:00 PM - 5:00 PM</span>
+                <span class="status completed">Completed</span>
+              </div>
+              <p>Student committee meeting</p>
+            </div>
+            <div class="booking-actions">
+              <button class="action-btn view-btn"><i class="fas fa-eye"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Meal Booking Section -->
+  <section id="meal">
+    <div class="card">
+      <h2><i class="fas fa-utensils"></i> Meal Booking</h2>
+      <p>Book your meals for the upcoming week. Orders must be placed by 8 PM for the next day.</p>
+
+      <h3>Today's Menu</h3>
+      <div class="meal-options">
+        <div class="meal-card">
+          <div class="meal-image"
+            style="background-image: url('images/vegge.png'); background-size: cover; background-position: center; height: 400px;">
+          </div>
+          <div class="meal-details">
+            <h4 class="meal-title">Regular Meal</h4>
+            <p class="meal-description">Rice, dal, vegetable, chicken curry, and salad</p>
+            <p class="meal-price">70 BDT</p>
+            <button class="meal-order-btn">Book Now</button>
+          </div>
+        </div>
+
+        <div class="meal-card">
+          <div class="meal-image"
+            style="background-image: url('images/special meal.jpeg'); background-size: cover; background-position: center; height: 400px;">
+          </div>
+          <div class="meal-details">
+            <h4 class="meal-title">Special Meal</h4>
+            <p class="meal-description">Rice, biryani, beef curry, vegetable, and dessert</p>
+            <p class="meal-price">120 BDT</p>
+            <button class="meal-order-btn">Book Now</button>
+          </div>
+        </div>
+
+        <div class="meal-card">
+          <div class="meal-image"
+            style="background-image: url('images/vegitable.jpeg'); background-size: cover; background-position: center; height: 400px;">
+          </div>
+          <div class="meal-details">
+            <h4 class="meal-title">Vegetarian Meal</h4>
+            <p class="meal-description">Rice, dal, mixed vegetables, paneer, and salad</p>
+            <p class="meal-price">60 BDT</p>
+            <button class="meal-order-btn">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <h3>My Meal Bookings</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Meal Type</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>15-10-2023</td>
+            <td>Regular Meal</td>
+            <td>Booked</td>
+            <td><button class="meal-order-btn">Cancel</button></td>
+          </tr>
+          <tr>
+            <td>16-10-2023</td>
+            <td>Special Meal</td>
+            <td>Booked</td>
+            <td><button class="meal-order-btn">Cancel</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- Event Management Section -->
+  <section id="events">
+    <div class="card">
+      <h2><i class="fas fa-calendar-alt"></i> Event Management</h2>
+      <p>Check upcoming hostel events and register for participation.</p>
+
+      <h3>Upcoming Events</h3>
+      <div class="event-list">
+
+        <!-- Cultural Night -->
+        <div class="event-card">
+          <img src="images/culturalnight.png" alt="Cultural Night" class="event-image">
+          <h4 class="event-title">Cultural Night</h4>
+          <p class="event-date"><strong>Date:</strong> 20-10-2023</p>
+          <p class="event-description">An evening of music, dance, and cultural performances.</p>
+          <button class="event-register-btn">Register</button>
+        </div>
+
+        <!-- Sports Day -->
+        <div class="event-card">
+          <img src="images/sport.png" alt="Sports Day" class="event-image">
+          <h4 class="event-title">Sports Day</h4>
+          <p class="event-date"><strong>Date:</strong> 25-10-2023</p>
+          <p class="event-description">Join us for a day full of exciting sports activities.</p>
+          <button class="event-register-btn">Register</button>
+        </div>
+
+        <!-- Debate Competition -->
+        <div class="event-card">
+          <img src="images/debate.png" alt="Debate Competition" class="event-image">
+          <h4 class="event-title">Debate Competition</h4>
+          <p class="event-date"><strong>Date:</strong> 28-10-2023</p>
+          <p class="event-description">Participate in the inter-hostel debate competition.</p>
+          <button class="event-register-btn">Register</button>
+        </div>
+
+      </div>
+
+      <h3>My Registrations</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cultural Night</td>
+            <td>20-10-2023</td>
+            <td>Registered</td>
+            <td><button class="event-cancel-btn">Cancel</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <!-- Complaint Box Section -->
+  <section id="complaint">
+    <div class="card">
+      <h2><i class="fas fa-exclamation-circle"></i> Complaint Box</h2>
+      <p>Submit your complaints regarding hostel facilities or management. You can also track the status of your
+        submitted
+        complaints.</p>
+
+      <!-- Complaint Form -->
+      <h3>Submit a Complaint</h3>
+      <form id="complaintForm" class="complaint-form">
+        <div class="form-group">
+          <label for="studentNameComplaint">Student Name:</label>
+          <input type="text" id="studentNameComplaint" name="studentNameComplaint" placeholder="Enter your name"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="studentIdComplaint">Student ID:</label>
+          <input type="text" id="studentIdComplaint" name="studentIdComplaint" placeholder="Enter your Student ID"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="complaintTitle">Complaint Type:</label>
+          <select id="complaintTitle" name="complaintTitle" required>
+            <option value="">Select a Complaint</option>
+            <option value="food-quality">Food Quality</option>
+            <option value="price">Price</option>
+            <option value="electrical-problem">Electrical Problem</option>
+            <option value="plumbing-issue">Plumbing Issue</option>
+            <option value="wifi-internet">WiFi / Internet</option>
+            <option value="reading-room-noise">Reading Room Noise</option>
+            <option value="security-concern">Security Concern</option>
+            <option value="cleanliness">Cleanliness / Hygiene</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="complaintDescription">Description:</label>
+          <textarea id="complaintDescription" name="complaintDescription" rows="4" placeholder="Describe your issue"
+            required></textarea>
+        </div>
+
+        <button type="submit" class="complaint-submit-btn"><i class="fas fa-paper-plane"></i> Submit Complaint</button>
+      </form>
+
+      <!-- Complaint List -->
+      <h3>My Complaints</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Student ID</th>
+            <th>Complaint Type</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="complaintList">
+          <!-- Example Row -->
+          <tr>
+            <td>Rahim Ahmed</td>
+            <td>JU12345</td>
+            <td>WiFi / Internet</td>
+            <td>Internet not working in Block A since last night.</td>
+            <td>Pending</td>
+            <td><button class="complaint-cancel-btn">Cancel</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="js/index.js"></script>
 </body>
+
 </html>

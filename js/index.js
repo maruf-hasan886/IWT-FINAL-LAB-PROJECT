@@ -38,7 +38,7 @@ function closeRegisterModal() {
 }
 
 // Optional: Close modal when clicking outside the content
-window.addEventListener('click', function(e) {
+window.addEventListener('click', function (e) {
   const loginModal = document.getElementById('loginModal');
   const registerModal = document.getElementById('registerModal');
 
@@ -47,7 +47,9 @@ window.addEventListener('click', function(e) {
 });
 // JS for Service Section Modal
 document.addEventListener('DOMContentLoaded', () => {
-  const serviceButtons = document.querySelectorAll('#services .service-card button');
+  const serviceButtons = document.querySelectorAll(
+    '#services .service-card button'
+  );
   const modalContainer = document.createElement('div');
   modalContainer.id = 'serviceModal';
   modalContainer.classList.add('modal');
@@ -67,21 +69,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Service descriptions (customize as needed)
   const servicesData = {
-    'Reading Room': 'Quiet, well-ventilated study rooms with desks, chairs, and ample lighting for focused study.',
-    'Canteen': 'Clean, hygienic canteen serving multiple food options including breakfast, lunch, and snacks.',
-    'Study Room': 'Equipped with computers and high-speed Wi-Fi for research, assignments, and academic work.',
-    'Sports Ground': 'Large, well-maintained sports ground with proper lighting for football, cricket, and other sports.',
-    'Medical Support': 'Doctor on call and first-aid available for emergencies along with basic health checkups.',
-    'Security': '24/7 trained security personnel with CCTV monitoring and controlled entry for student safety.'
+    'Reading Room':
+      'Quiet, well-ventilated study rooms with desks, chairs, and ample lighting for focused study.',
+    Canteen:
+      'Clean, hygienic canteen serving multiple food options including breakfast, lunch, and snacks.',
+    'Study Room':
+      'Equipped with computers and high-speed Wi-Fi for research, assignments, and academic work.',
+    'Sports Ground':
+      'Large, well-maintained sports ground with proper lighting for football, cricket, and other sports.',
+    'Medical Support':
+      'Doctor on call and first-aid available for emergencies along with basic health checkups.',
+    Security:
+      '24/7 trained security personnel with CCTV monitoring and controlled entry for student safety.',
   };
 
   // Show modal on button click
   serviceButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', e => {
       const card = e.target.closest('.service-card');
       const serviceName = card.querySelector('h3').innerText;
       titleElem.innerText = serviceName;
-      descElem.innerText = servicesData[serviceName] || 'Details not available.';
+      descElem.innerText =
+        servicesData[serviceName] || 'Details not available.';
       modal.style.display = 'flex';
     });
   });
@@ -92,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Close modal on clicking outside content
-  window.addEventListener('click', (e) => {
+  window.addEventListener('click', e => {
     if (e.target === modal) {
       modal.style.display = 'none';
     }
@@ -102,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const adminButtons = document.querySelectorAll('.admin-btn');
 
 adminButtons.forEach(btn => {
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', e => {
     const card = e.target.closest('.admin-card');
 
     // Add animation class
@@ -116,4 +125,3 @@ adminButtons.forEach(btn => {
     alert('Appointment scheduling feature coming soon!'); // placeholder action
   });
 });
-
